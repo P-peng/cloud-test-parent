@@ -17,6 +17,7 @@ spring:
         file-extension: properties
         group: DEFAULT_GROUP
   profiles:
+    ### 文件环境
     active: dev
 
   ### 数据源配置 ###
