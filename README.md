@@ -1,3 +1,2 @@
 # cloud-test-parent
-
-springcloud,多模块，整合 nacos， openfeign客户端调用
+v1.0.0是spring-cloud 整合 若依普通版本
