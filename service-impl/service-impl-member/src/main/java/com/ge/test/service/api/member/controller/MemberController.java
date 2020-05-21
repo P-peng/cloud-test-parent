@@ -19,7 +19,7 @@ public class MemberController {
     @Autowired
     MemberServiceImpl memberService;
 //
-    @Value("${test.name:abc}")
+    @Value("${test.name}")
     private String configName;
 
     @GetMapping("/get")
