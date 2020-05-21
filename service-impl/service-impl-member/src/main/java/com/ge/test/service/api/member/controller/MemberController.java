@@ -19,16 +19,16 @@ public class MemberController {
     @Autowired
     MemberServiceImpl memberService;
 //
-//    @Value("${test.name}")
-//    private String configName;
+    @Value("${test.name:abc}")
+    private String configName;
 
     @GetMapping("/get")
     public Object get(){
         return memberService.getUser(2);
     }
 
-//    @GetMapping("/getConfig")
-//    public Object getConfig(){
-//        return configName;
-//    }
+    @GetMapping("/getConfig")
+    public Object getConfig(){
+        return configName;
+    }
 }
