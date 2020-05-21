@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0
  * @date 2020/5/20 0020
  */
-@FeignClient(value = "member")
+@FeignClient(value = "my-member")
 @RequestMapping("/user")
 public interface MemberService {
 
