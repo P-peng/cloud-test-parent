@@ -19,11 +19,14 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     MemberBiz memberBiz;
 
+    @Override
     public String getUser(Integer userId) {
         memberBiz.get();
+        System.out.println("123");
         return "123213";
     }
 
+    @Override
     public UserDto getUser2(UserDto userDto) {
         userDto.setName("6666");
         return userDto;
