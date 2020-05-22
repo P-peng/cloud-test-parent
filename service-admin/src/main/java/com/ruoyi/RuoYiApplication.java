@@ -1,13 +1,9 @@
 package com.ruoyi;
 
-import com.alibaba.nacos.spring.context.annotation.discovery.EnableNacosDiscovery;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * 启动程序
@@ -15,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
  * @author ruoyi
  */
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
+// 扫描 feign 客户端，该注解会扫描 @Feign 后创建Bean
 @EnableFeignClients(basePackages = "com.ge.test.service.api.member")
 public class RuoYiApplication
 {
@@ -34,9 +31,9 @@ public class RuoYiApplication
                 " ''-'   `'-'    `-..-'              ");
     }
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate(){
-        return new RestTemplate();
-    }
+//    @Bean
+//    @LoadBalanced
+//    public RestTemplate restTemplate(){
+//        return new RestTemplate();
+//    }
 }

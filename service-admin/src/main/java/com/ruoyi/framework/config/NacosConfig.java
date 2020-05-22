@@ -13,19 +13,19 @@ import javax.annotation.PostConstruct;
  * @version 1.0
  * @date 2020/5/21 0021
  */
-@Configuration
+//@Configuration
 public class NacosConfig {
 
-    @Value("${spring.application.name}")
-    private String applicationName;
-    @Value("${nacos.discovery.server-addr}")
-    private String nacosDiscoveryServerAddr;
-    @Value("${nacos.discovery.port}")
-    private Integer port;
-    @NacosInjected
-    private NamingService namingService;
-    @PostConstruct
-    public void registerInstance() throws NacosException {
-        namingService.registerInstance(applicationName, nacosDiscoveryServerAddr, port);
-    }
+//    @Value("${spring.application.name}")
+//    private String applicationName;
+//    @Value("${nacos.discovery.server-addr}")
+//    private String nacosDiscoveryServerAddr;
+//    @Value("${nacos.discovery.port}")
+//    private Integer port;
+//    @NacosInjected
+//    private NamingService namingService;
+//    @PostConstruct
+//    public void registerInstance() throws NacosException {
+//        namingService.registerInstance(applicationName, nacosDiscoveryServerAddr, port);
+//    }
 }

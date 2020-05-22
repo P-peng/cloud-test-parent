@@ -269,16 +269,32 @@
 
         <!-- 注册中心，nacos版本为1.2.1 -->
         <!-- nacos 配置管理功能依赖, -->
-        <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>nacos-config-spring-boot-starter</artifactId>
-            <version>0.2.3</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.boot</groupId>-->
+<!--            <artifactId>nacos-config-spring-boot-starter</artifactId>-->
+<!--            <version>0.2.3</version>-->
+<!--        </dependency>-->
         <!-- nacos 服务发现功能依赖 -->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.boot</groupId>-->
+<!--            <artifactId>nacos-discovery-spring-boot-starter</artifactId>-->
+<!--            <version>0.2.3</version>-->
+<!--        </dependency>-->
+
+        <!-- SpringCloud Alibaba 微服务 -->
+        <!-- 服务发现， 注意依赖 nacos-discovery-spring-boot-starter 不一样配置
+             尽量依赖 spring-cloud-starter-alibaba-nacos-discovery -->
         <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>nacos-discovery-spring-boot-starter</artifactId>
-            <version>0.2.3</version>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- SpringCloud Ailibaba nacos Config -->
+        <!-- 配置中心， 注意依赖 nacos-config-spring-boot-starter 不一样配置，
+             尽量依赖 spring-cloud-starter-alibaba-nacos-config   -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
         <dependency>
@@ -292,10 +308,10 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+<!--        </dependency>-->
 
     </dependencies>
 

@@ -32,7 +32,7 @@ server:
 logging:
   level:
     com.ruoyi: debug
-    org.springframework: warn
+    org.springframework: debug
 
 # 用户配置
 user:
@@ -71,6 +71,11 @@ spring:
     restart:
       # 热部署开关
       enabled: true
+  cloud:
+    nacos:
+      ### 注册中心地址
+      discovery:
+        server-addr: 127.0.0.1:8848
 
 # MyBatis
 mybatis:
@@ -143,9 +148,7 @@ gen:
   tablePrefix: sys_
 
 ### 注册中心
-nacos:
-  discovery:
-    server-addr: 127.0.0.1
-    port: 8848
-
-ribbon.eureka.enable: true
+#nacos:
+#  discovery:
+#    server-addr: 127.0.0.1
+#    port: 8848

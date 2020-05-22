@@ -1,7 +1,11 @@
 package com.ge.test.service.api;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author dengzhipeng
@@ -10,8 +14,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class MemberMain {
+    private static Logger logger = LoggerFactory.getLogger(MemberMain.class);
 
     public static void main(String[] args) {
         SpringApplication.run(MemberMain.class);
+        logger.info("##################################################");
+        logger.info("###############      服务启动      ###############");
+        logger.info("##################################################");
     }
 }

@@ -1,5 +1,7 @@
 server:
   port: 9000
+  max-http-header-size: 50KB
+
 spring:
   application:
     name: my-order
@@ -22,3 +24,4 @@ spring:
 #logging:
 #  level:
 #    org: debug
+#    com: debug
