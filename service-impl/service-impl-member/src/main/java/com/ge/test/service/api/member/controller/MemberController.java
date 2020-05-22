@@ -1,5 +1,6 @@
 package com.ge.test.service.api.member.controller;
 
+import com.ge.test.api.chain.feign.ChainFeign;
 import com.ge.test.service.api.member.impl.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +19,8 @@ public class MemberController {
 
     @Autowired
     MemberServiceImpl memberService;
+    @Autowired
+    ChainFeign chainFeign;
 //
     @Value("${test.name}")
     private String configName;
@@ -30,5 +33,10 @@ public class MemberController {
     @GetMapping("/getConfig")
     public Object getConfig(){
         return configName;
+    }
+
+    @GetMapping("/getChain")
+    public Object getChain(){
+        return chainFeign.getChain(1);
     }
 }

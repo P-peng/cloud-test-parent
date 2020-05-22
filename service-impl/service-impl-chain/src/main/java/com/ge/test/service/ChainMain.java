@@ -1,25 +1,21 @@
-package com.ge.test.service.api;
+package com.ge.test.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.cloud.openfeign.FeignClient;
 
 /**
  * @author dengzhipeng
  * @version 1.0
- * @date 2020/5/20 0020
+ * @date 2020/5/22 0022
  */
 @SpringBootApplication
-@EnableFeignClients(basePackages = "com.ge.test.api.chain.feign")
-public class MemberMain {
-    private static Logger logger = LoggerFactory.getLogger(MemberMain.class);
+public class ChainMain {
+    private static Logger logger = LoggerFactory.getLogger(ChainMain.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(MemberMain.class);
+        SpringApplication.run(ChainMain.class);
         logger.info("##################################################");
         logger.info("###############      服务启动      ###############");
         logger.info("##################################################");

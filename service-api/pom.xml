@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>service-api-member</module>
+        <module>service-api-chain</module>
     </modules>
 
     <dependencies>
