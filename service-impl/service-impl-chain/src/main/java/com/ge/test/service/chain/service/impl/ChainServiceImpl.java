@@ -50,20 +50,6 @@ public class ChainServiceImpl implements ChainService {
         try {
             this.initFabricClient();
 
-            Properties properties1 = Util.gete2ePro(FabricNodeEnum.PEER.getType(), fabricConfigBean.getOrg1Peer0());
-            Peer peer = fabClient.getInstance().newPeer(fabricConfigBean.getOrg1Peer0() , fabricConfigBean.getOrg1Peer0Url(),properties1);
-
-            Properties properties2 = Util.gete2ePro(FabricNodeEnum.PEER.getType(), fabricConfigBean.getOrg2Peer0());
-            Peer peer2 = fabClient.getInstance().newPeer(fabricConfigBean.getOrg2Peer0(), fabricConfigBean.getOrg2Peer0Url(),properties2);
-
-            Properties orderPro = Util.gete2ePro(FabricNodeEnum.ORDERER.getType(), fabricConfigBean.getOrdererName());
-            Orderer orderer = fabClient.getInstance().newOrderer(fabricConfigBean.getOrdererName(), fabricConfigBean.getOrdererUrl(), orderPro);
-            channel.addPeer(peer);
-            // 背书策略为OR的话不需要添加 peer2
-            channel.addPeer(peer2);
-            channel.addOrderer(orderer);
-            channel.initialize();
-
             TransactionProposalRequest request = fabClient.getInstance().newTransactionProposalRequest();
             ChaincodeID ccid = ChaincodeID.newBuilder().setName("chaincode002").build();
             request.setChaincodeID(ccid);
@@ -115,6 +101,20 @@ public class ChainServiceImpl implements ChainService {
 
             ChannelClient channelClient = fabClient.createChannelClient(FabricConfig.CHANNEL_NAME);
             Channel channel = channelClient.getChannel();
+
+            Properties properties1 = Util.gete2ePro(FabricNodeEnum.PEER.getType(), fabricConfigBean.getOrg1Peer0());
+            Peer peer = fabClient.getInstance().newPeer(fabricConfigBean.getOrg1Peer0() , fabricConfigBean.getOrg1Peer0Url(),properties1);
+
+            Properties properties2 = Util.gete2ePro(FabricNodeEnum.PEER.getType(), fabricConfigBean.getOrg2Peer0());
+            Peer peer2 = fabClient.getInstance().newPeer(fabricConfigBean.getOrg2Peer0(), fabricConfigBean.getOrg2Peer0Url(),properties2);
+
+            Properties orderPro = Util.gete2ePro(FabricNodeEnum.ORDERER.getType(), fabricConfigBean.getOrdererName());
+            Orderer orderer = fabClient.getInstance().newOrderer(fabricConfigBean.getOrdererName(), fabricConfigBean.getOrdererUrl(), orderPro);
+            channel.addPeer(peer);
+            // 背书策略为OR的话不需要添加 peer2
+            channel.addPeer(peer2);
+            channel.addOrderer(orderer);
+            channel.initialize();
 
             this.fabClient = fabClient;
             this.channel = channel;
