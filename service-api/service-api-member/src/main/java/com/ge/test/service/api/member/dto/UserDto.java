@@ -1,8 +1,5 @@
 package com.ge.test.service.api.member.dto;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
-
 import java.io.Serializable;
 
 /**

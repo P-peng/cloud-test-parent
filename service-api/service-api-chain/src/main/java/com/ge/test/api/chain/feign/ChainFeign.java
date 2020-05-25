@@ -16,4 +16,7 @@ public interface ChainFeign{
 
     @GetMapping("/getChain")
     String getChain(@RequestParam(value = "userId", required = false) Integer userId);
+
+    @GetMapping("/getByKey")
+    String getByKey(@RequestParam(value = "key", required = false) String key);
 }

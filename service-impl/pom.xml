@@ -48,5 +48,21 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <!-- 扫描springboot启动主类, 注意，父模块不能存在这个插件-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -1,5 +1,5 @@
 server:
-  port: 6001
+  port: 6002
 
 spring:
   application:
@@ -16,6 +16,15 @@ spring:
         ### 文件类型
         file-extension: properties
         group: DEFAULT_GROUP
+
+### fabric 配置
+fabric:
+  server: 47.102.139.103
+  domain-name: baolijinglight.com
+  crypto-config-path: D://
+  user-path: D://
+
+
 
 
 #  ### 数据源配置 ###
