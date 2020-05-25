@@ -61,7 +61,6 @@ public class ChainServiceImpl implements ChainService {
             channel.addPeer(peer);
             // 背书策略为OR的话不需要添加 peer2
             channel.addPeer(peer2);
-//            channel.addEventHub(eventHub);
             channel.addOrderer(orderer);
             channel.initialize();
 
