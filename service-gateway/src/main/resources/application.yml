@@ -1,32 +1,36 @@
 server:
-  port: 7000
+  port: 80
 
 spring:
   application:
     ### 命名风格 团队名-服务 强制要求
-    name: my-member
+    name: my-gateway
   cloud:
+    gateway:
+      discovery:
+        locator:
+          ### 开启去注册中心获取转发地址
+          enabled: true
+      routes:
+        - id: member
+          ### 转发地址
+          uri: lb://my-member/
+          filters:
+            - StripPrefix=1
+          ### 路由id
+          predicates:
+            - Path=/member/**
     nacos:
-      ### 注册中心地址
       discovery:
         server-addr: 127.0.0.1:8848
-      ### 配置中心地址
-      config:
-        server-addr: 127.0.0.1:8848
-        ### 文件类型, nacos1.2.1有bug，可以看看
-        file-extension: properties
-        group: DEFAULT_GROUP
-  profiles:
-    ### 文件环境
-    active: dev
 
   ### 数据源配置 ###
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       username: root
-      password: root123456
-      url: jdbc:mysql://121.37.206.218:3306/test?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
+      password: Lv123456+
+      url: jdbc:mysql://47.100.17.141:3306/test?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
       ### 初始化连接数
       initial-size: 3
       ### 最小连接池数量
@@ -57,8 +61,8 @@ spring:
 #      logretentiondays: -1
 #
 #### mybatis 扫描配置 ###
-#mybatis:
-#  mapper-locations: classpath*:mapper/*.mapper
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
 #
 #### 控制台 sql打印 ###
 #debug: true
